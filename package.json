@@ -1,0 +1,21 @@
+{
+  "name": "ibsheet-interface",
+  "version": "1.0.0",
+  "repository": "git@github.com:ibsheet/ibsheet-interface.git",
+  "license": "MIT",
+  "types": "dist/ibsheet-interface/index.d.ts",
+  "main": "dist/ibsheet-interface/index.d.ts",
+  "files": [
+    "dist/ibsheet-interface"
+  ],
+  "scripts": {
+    "build": "yarn build:types && yarn build:copy",
+    "build:types": "tsc",
+    "build:copy": "shx cp LICENSE README.md dist/ibsheet-interface",
+    "postbuild": "node scripts/create-package.cjs"
+  },
+  "devDependencies": {
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
+  }
+}
