@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "dist/ibsheet-interface", // ⬅️ 여기에 경로 지정
+    "outDir": "dist/ibsheet-interface",
     "rootDir": "src",
     "moduleResolution": "node",
-    "target": "ES2020",
+    "target": "ESNext",
     "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,

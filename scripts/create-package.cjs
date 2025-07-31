@@ -7,8 +7,9 @@ const packageJsonPath = path.join(outDir, 'package.json');
 const packageJsonContent = {
   name: "ibsheet-interface",
   version: "1.0.0",
+  main: "./index.js",
+  module: "./index.js",
   types: "./index.d.ts",
-  main: "./index.d.ts",
   license: "MIT",
   private: false
 };
