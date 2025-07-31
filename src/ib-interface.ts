@@ -1,5 +1,13 @@
 export type IBSheetInstance = IBSheetProperties & IBSheetFunctions;
 
+export interface IBSheetCreateOptions {
+  id?: string;
+  el?: string | HTMLDivElement;
+  options?: IBSheetOptions;
+  data?: any[];
+  sync?: boolean | number;
+}
+
 export interface IBSheetOptions {
   Cfg?: IBSheetProperties;
   Def?: object;
@@ -13,7 +21,7 @@ export interface IBSheetOptions {
   Events?: IBSheetEvents;
 }
 
-interface IBSheetProperties {
+export interface IBSheetProperties {
   readonly Cols ? : IBCol[];
   readonly Def ? : IBRow[];
   readonly FilterCount ? : number;
@@ -230,7 +238,7 @@ interface IBSheetProperties {
   ZIndex ? : number;
 }
 
-interface IBStyleRowConfig {
+export interface IBStyleRowConfig {
   Visible ? : boolean | number;
   StorageType ? : number;
   ServerUrl ? : string;
@@ -239,7 +247,7 @@ interface IBStyleRowConfig {
   Extend ? : boolean | number;
 }
 
-interface IBSummary {
+export interface IBSummary {
   Mode ? : string;
   Align ? : string;
   Width ? : number;
@@ -247,7 +255,7 @@ interface IBSummary {
   AvgFormat ? : string;
 }
 
-interface IBInfoRowConfig {
+export interface IBInfoRowConfig {
   Visible ? : boolean | number;
   Layout ? : string[]| object[];
   ViewCount ? : number;
@@ -257,7 +265,7 @@ interface IBInfoRowConfig {
   Format ? : string;
 }
 
-interface IBExport {
+export interface IBExport {
   Url ? : string;
   Down2ExcelUrl ? : string;
   LoadExcelUrl ? : string;
@@ -270,7 +278,7 @@ interface IBExport {
   FilePath ? : string;
 }
 
-interface IBExcelDownloadConfig {
+export interface IBExcelDownloadConfig {
   fileName ? : string;
   sheetName ? : string;
   downRows ? : string;
@@ -314,12 +322,12 @@ interface IBExcelDownloadConfig {
   freezePane ? : number;
 }
 
-interface IBExcelDownEx {
+export interface IBExcelDownEx {
   Height ? : number;
   Cells ? : IBSheetDownExCell[];
 }
 
-interface IBSheetDownExCell {
+export interface IBSheetDownExCell {
   Type ? : string;
   Value ? : string;
   Align ? : string;
@@ -337,7 +345,7 @@ interface IBSheetDownExCell {
   BorderRight ? : string;
 }
 
-interface IBTextDownLoadConfig {
+export interface IBTextDownLoadConfig {
   fileName ? : string;
   rowDelim ? : string;
   colDelim ? : string;
@@ -353,7 +361,7 @@ interface IBTextDownLoadConfig {
   useXhr ? : boolean | number;
 }
 
-interface IBExcelLoadConfig {
+export interface IBExcelLoadConfig {
   append ? : boolean | number;
   fileExt ? : string;
   maxFileSize ? : string;
@@ -372,7 +380,7 @@ interface IBExcelLoadConfig {
   useXhr ? : boolean | number;
 }
 
-interface IBTextLoadConfig {
+export interface IBTextLoadConfig {
   append ? : boolean | number;
   fileExt ? : string;
   mode ? : string;
@@ -383,7 +391,7 @@ interface IBTextLoadConfig {
   useXhr ? : boolean | number;
 }
 
-interface IBRow {
+export interface IBRow {
   id ? : string;
   Added ? : number;
   Align ? : string;
@@ -440,7 +448,7 @@ interface IBRow {
   Wrap ? : boolean | number;
 }
 
-interface IBCol {
+export interface IBCol {
   AcceptEnters ? : number;
   Accept ? : string;
   AddEdit ? : boolean | number;
@@ -598,26 +606,26 @@ interface IBCol {
   Wrap ? : boolean | number;
 }
 
-interface IBColSignFontStyle {
+export interface IBColSignFontStyle {
   TextColor ? : string;
   TextFont ? : string;
   TextSize ? : string;
   TextStyle ? : string;
 }
 
-interface IBColInterval {
+export interface IBColInterval {
   Minute ? : number;
   Second ? : number;
   Init ? : boolean | number;
 }
 
-interface IBColGroupSubTotal {
+export interface IBColGroupSubTotal {
   Type ? : string;
   Color ? : string;
   Format ? : string;
 }
 
-interface IBCell {
+export interface IBCell {
   Alias ? : string;
   AcceptEnters ? : number;
   Accept ? : string;
@@ -716,7 +724,7 @@ interface IBCell {
   Wrap ? : boolean | number
 }
 
-interface IBSheetFunctions {
+export interface IBSheetFunctions {
   acceptChangedData(row?: IBRow|{row?: IBRow}): void;
   addCol(name: string|{name: string, section?: number, pos?: number, param?: object, visible?: boolean|number, render?: boolean|number}, section?: number, pos?: number, param?: object, visible?: boolean|number, render?: boolean|number): IBCol;
   addFormula(formula: string|Function|{formula: string|Function, row?: IBRow|IBRow[], col?: string, attr?: string, render?: boolean|number}, row?: IBRow|IBRow[], col?: string, attr?: string, render?: boolean|number): boolean;
@@ -970,7 +978,7 @@ interface IBSheetFunctions {
   version(): string;
 }
 
-interface IBSheetEvents {
+export interface IBSheetEvents {
   // onAfterCalculate(evtParams:{sheet: IBSheetInstance, show: boolean, row: IBRow, col: string, eventName: string}): void;
   onAfterChange?(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, val: any, eventName: string}): void;
   onAfterClick?(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, x: number, y: number, event: Event, canState: string, cellType: string, part: string, partType: string, section: string, kind: string, eventName: string}): void;
@@ -1092,7 +1100,7 @@ interface IBSheetEvents {
   onValidation?(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, eventName: string}): void;
 }
 
-interface IBMenu {
+export interface IBMenu {
   OnButton ? (button: string) : boolean | number;
   OnSave ? (Item: IBMenuItem, Data: string) : boolean | number;
   Buttons ? : string[];
@@ -1104,7 +1112,7 @@ interface IBMenu {
   ShowHint ? : boolean | number;
 }
 
-interface IBMenuItem {
+export interface IBMenuItem {
   OnChanged ? (Value: string) : string;
   OnClick ? () : boolean | number;
   Bool ? : number;
@@ -1139,7 +1147,7 @@ interface IBMenuItem {
   Width ? : number;
 }
 
-interface IBPosition {
+export interface IBPosition {
   Align ? : string;
   Height ? : number;
   Mouse ? : boolean | number;
@@ -1152,7 +1160,7 @@ interface IBPosition {
   Y ? : number;
 }
 
-interface IBPage {
+export interface IBPage {
   Level ? : number;
   LevelImg ? : number;
   Name ? : string;
@@ -1168,7 +1176,7 @@ interface IBPage {
   tagName ? : string;
 }
 
-interface IBDialog {
+export interface IBDialog {
   Close ? () : void;
   Area ? : any;
   Body ? : string;
@@ -1194,7 +1202,7 @@ interface IBDialog {
   Wrap ? : number;
 }
 
-interface IBCalendar {
+export interface IBCalendar {
   Close ? () : void;
   OnButtonClick ? (button: number) : number;
   OnCanEditDate ? (date: Date) : boolean | number;
