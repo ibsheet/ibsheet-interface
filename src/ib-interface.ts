@@ -391,7 +391,7 @@ export interface IBTextLoadConfig {
   useXhr ? : boolean | number;
 }
 
-export interface IBRow {
+export interface IBRow extends IBColFormulas {
   id ? : string;
   Added ? : number;
   Align ? : string;
@@ -448,7 +448,7 @@ export interface IBRow {
   Wrap ? : boolean | number;
 }
 
-export interface IBCol {
+export interface IBColBase {
   AcceptEnters ? : number;
   Accept ? : string;
   AddEdit ? : boolean | number;
@@ -506,13 +506,11 @@ export interface IBCol {
   Enum ? : string;
   ExcludeEmpty ? : boolean | number;
   Extend ? : object;
-  FalseValue ? : string
+  FalseValue ? : string;
   FocusCell ? : string;
   FocusRow ? : string;
   FormatFix ? : boolean | number;
   Format ? : string;
-  FormulaRow ? : string | Function;
-  Formula ? : string | Function;
   GMT ? : boolean | number;
   GroupChar ? : string;
   GroupDef ? : string;
@@ -524,7 +522,7 @@ export interface IBCol {
   GroupWidth ? : number;
   HRadio ? : boolean | number;
   HeaderCheck ? : number;
-  Header ? : string | object | string[]|object[];
+  Header ? : string | object | (string | object)[];
   // Header?: string | IBCol[] | string[];
   HideMobile ? : boolean | number;
   HintValue ? : any;
@@ -604,6 +602,19 @@ export interface IBCol {
   WidthPad ? : number;
   Width ? : number;
   Wrap ? : boolean | number;
+}
+
+// IBColBase를 기반으로 Formula 속성들 생성
+export type IBColFormulas = {
+  [K in keyof IBColBase as `${K & string}Formula`]?: string | Function;
+};
+
+export interface IBCol extends IBColBase, IBColFormulas {
+  // 기존에 있던 Formula 속성들 (Function 지원)
+  Formula?: string | Function;
+  FormulaRow?: string | Function;
+  // Template literal 대신 일반적인 index signature 사용
+  [key: string]: any;
 }
 
 export interface IBColSignFontStyle {
