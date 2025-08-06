@@ -743,8 +743,8 @@ export interface IBSheetFunctions {
   addRows(count: number|{count: number, next?: IBRow, focus?: boolean|number, parent?: IBRow, valid?: boolean|number}, next?: IBRow, focus?: boolean|number, parent?: IBRow, valid?: boolean|number): IBRow;
   ajax(url: string|{url: string, params?: string|object, method?: string, callback?: Function, sync?: boolean|number, reqHeader?: object, timeout?: number, traditional?: boolean|number}, params?: string|object, method?: string, callback?: Function, sync?: boolean|number, reqHeader?: object, timeout?: number, traditional?: boolean|number): void;
   applySaveResult(result: number|{result: number, message?: string, response?: object, files?: any[]}, message?: string, response?: object, files?: any[]): boolean;
-  // bind(name: string|{name: string, func: Function}, func?: Function): void;
-  // bindAll(func: Function|{func: Function}): void;
+  bind(name: string|{name: string, func: Function}, func?: Function): void;
+  bindAll(func: Function|{func: Function}): void;
   blur(mode?: number|{mode?: number}): boolean;
   calculate(render?: boolean|number|{render?: boolean|number, calconly?: boolean|number, fixedonly?: boolean|number}, calconly?: boolean|number, fixedonly?: boolean|number): void;
   clearCurrentInfo(): boolean;
@@ -982,8 +982,8 @@ export interface IBSheetFunctions {
   startEdit(row?: IBRow|{row?: IBRow, col?: string, empty?: boolean|number, valid?: boolean|number}, col?: string, empty?: boolean|number, valid?: boolean|number): void;
   switchPivotSheet(pivot?: number|{pivot?: number}): void;
   syncHeaderCheck(): void;
-  // unbind(name: string|{name: string}): void;
-  // unbindAll(): void;
+  unbind(name: string|{name: string}): void;
+  unbindAll(): void;
   updateClientPaging(length: number|{length: number, render?: boolean|number}, render?: boolean|number): boolean;
   updatePageLength(length: number|{length: number, cPage?: number}, cPage?: number): boolean;
   version(): string;
@@ -1070,7 +1070,7 @@ export interface IBSheetEvents {
   // onReadEnumKeys(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, enumkeys: string, eventName: string}): string;
   onReadMenu?(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, menu: IBMenu, eventName: string}): any;
   onReadSuggest?(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, suggest: string, eventName: string}): any;
-  onReceiveData?(evtParams:{sheet: IBSheetInstance, data: string, response: object, type: string, eventName: string}): string;
+  onReceiveData?(evtParams:{sheet: IBSheetInstance, data: string, response: object, type: string, eventName: string}): string | any[];
   onRenderFinish?(evtParams:{sheet: IBSheetInstance, eventName: string}): void;
   onRenderFirstFinish?(evtParams:{sheet: IBSheetInstance, eventName: string}): void;
   // onRenderPageFinish(evtParams:{sheet: IBSheetInstance, row: IBPage, eventName: string}): void;
