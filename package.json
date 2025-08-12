@@ -1,6 +1,6 @@
 {
   "name": "@ibsheet/interface",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "prviate": true,
   "repository": "git@github.com:ibsheet/ibsheet-interface.git",
   "license": "MIT",
