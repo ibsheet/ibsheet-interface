@@ -14,12 +14,11 @@
     "clean": "rimraf dist",
     "build": "yarn clean && yarn build:types && yarn build:copy",
     "build:types": "tsc",
-    "build:copy": "shx cp LICENSE README.md dist/ibsheet-interface",
+    "build:copy": "shx cp LICENSE README.md CHANGELOG.md dist/ibsheet-interface",
     "postbuild": "node scripts/create-package.cjs",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
-    "postrelease": "shx cp CHANGELOG.md dist/ibsheet-interface",
     "release:publish": "yarn release && cd dist/ibsheet-interface && npm publish --access public"
   },
   "devDependencies": {
