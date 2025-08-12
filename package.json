@@ -15,11 +15,17 @@
     "build": "yarn clean && yarn build:types && yarn build:copy",
     "build:types": "tsc",
     "build:copy": "shx cp LICENSE README.md dist/ibsheet-interface",
-    "postbuild": "node scripts/create-package.cjs"
+    "postbuild": "node scripts/create-package.cjs",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "postrelease": "shx cp CHANGELOG.md dist/ibsheet-interface",
+    "release:publish": "yarn release && cd dist/ibsheet-interface && npm publish --access public"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
     "shx": "^0.4.0",
+    "standard-version": "^9.5.0",
     "typescript": "^5.8.3"
   }
 }

@@ -15,7 +15,7 @@ const packageJsonContent = {
     type: 'git',
     url: 'git+https://github.com/ibsheet/ibsheet-interface.git',
   },
-  keywords: ['IBSheet', 'ibsheet', 'typescript', 'interface'],
+  keywords: ['ibsheet', 'typescript', 'interface'],
   author: 'IB Leaders <support@ibleaders.co.kr>',
   description: 'TypeScript interface for IBSheet',
 };
