@@ -1,5 +1,7 @@
 # ibsheet-interface
 
+TypeScript interface definitions for IBSheet JavaScript Data Grid Library.
+
 ## Build Setup
 
 ```bash
