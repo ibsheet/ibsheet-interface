@@ -1,11 +1,12 @@
 # ibsheet-interface
 
 ## Build Setup
-``` bash
+
+```bash
 # install dependencies
 yarn install
 
-# build for production 
+# build for production
 yarn build
 ```
 

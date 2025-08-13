@@ -1,2 +1,2 @@
-export * from './ib-preset';
-export * from './ib-interface';
+export * from './ib-preset'
+export * from './ib-interface'

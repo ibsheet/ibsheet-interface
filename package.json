@@ -2,6 +2,7 @@
   "name": "@ibsheet/interface",
   "version": "1.0.1",
   "prviate": true,
+  "type": "module",
   "repository": "git@github.com:ibsheet/ibsheet-interface.git",
   "license": "MIT",
   "main": "dist/ibsheet-interface/index.js",
@@ -19,12 +20,27 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
-    "release:publish": "yarn release && cd dist/ibsheet-interface && npm publish --access public"
+    "release:publish": "yarn release && cd dist/ibsheet-interface && npm publish --access public",
+    "lint": "eslint --ext .ts src",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
+    "lint:test": "eslint \"**/*.ts\" && prettier \"**/*.{ts,js,json,md}\" --list-different",
+    "fix:eslint": "eslint \"**/*.ts\" --fix",
+    "fix:prettier": "prettier \"**/*.{ts,js,json,md}\" --write --list-different"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "@typescript-eslint/utils": "^8.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "shx": "^0.4.0",
     "standard-version": "^9.5.0",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "eslint": "^9.33.0"
   }
 }
