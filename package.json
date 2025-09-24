@@ -11,6 +11,9 @@
   "files": [
     "dist/ibsheet-interface"
   ],
+  "keywords": ["ibsheet", "typescript", "interface"],
+  "author": "IB Leaders <support@ibleaders.co.kr>",
+  "description": "TypeScript interface for IBSheet",
   "scripts": {
     "clean": "rimraf dist",
     "build": "yarn clean && yarn build:types && yarn build:copy",

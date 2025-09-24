@@ -1995,11 +1995,11 @@ export interface IBSheetEvents {
     col: string
     val: string
     eventName: string
-  }): string
+  }): string | void
   onAfterExpand?(evtParams: { sheet: IBSheetInstance; row: IBRow; eventName: string }): void
   onAfterFilter?(evtParams: { sheet: IBSheetInstance; type: number; eventName: string }): void
-  onAfterGotoPage?(evtParams: { sheet: IBSheetInstance; eventName: string }): boolean
-  onAfterGroup?(evtParams: { sheet: IBSheetInstance; eventName: string }): boolean
+  onAfterGotoPage?(evtParams: { sheet: IBSheetInstance; eventName: string }): boolean | void
+  onAfterGroup?(evtParams: { sheet: IBSheetInstance; eventName: string }): boolean | void
   onAfterPaste?(evtParams: { sheet: IBSheetInstance; eventName: string }): void
   onAfterPivot?(evtParams: {
     sheet: IBSheetInstance
@@ -2009,7 +2009,7 @@ export interface IBSheetEvents {
     format: string
     type: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onAfterChangeProgress?(evtParams: {
     sheet: IBSheetInstance
     messageTag: object
@@ -2042,14 +2042,14 @@ export interface IBSheetEvents {
     torow: IBRow
     copy: boolean
     eventName: string
-  }): number
+  }): number | void
   onAfterRowMove?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     oldparent: IBRow
     oldnext: IBRow
     eventName: string
-  }): number
+  }): number | void
   onAfterSave?(evtParams: {
     sheet: IBSheetInstance
     result: number
@@ -2071,14 +2071,14 @@ export interface IBSheetEvents {
     val: unknown
     oldval: unknown
     eventName: string
-  }): string
+  }): string | void
   onBeforeCheckAll?(evtParams: { sheet: IBSheetInstance; col: string; eventName: string }): void
   onBeforeColMove?(evtParams: {
     sheet: IBSheetInstance
     col: string
     toCol: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onBeforeDataLoad?(evtParams: {
     sheet: IBSheetInstance
     result: number
@@ -2087,15 +2087,15 @@ export interface IBSheetEvents {
     response: object
     type: string
     eventName: string
-  }): boolean
-  onBeforeExpand?(evtParams: { sheet: IBSheetInstance; row: IBRow; eventName: string }): boolean
+  }): boolean | void
+  onBeforeExpand?(evtParams: { sheet: IBSheetInstance; row: IBRow; eventName: string }): boolean | void
   onBeforeExport?(evtParams: {
     sheet: IBSheetInstance
     type: string
     formElem: object
     data: object
     eventName: string
-  }): boolean
+  }): boolean | void
   onBeforeFileDown?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2103,8 +2103,8 @@ export interface IBSheetEvents {
     path: string
     value: string
     eventName: string
-  }): boolean
-  onBeforeFilter?(evtParams: { sheet: IBSheetInstance; type: number; eventName: string }): boolean
+  }): boolean | void
+  onBeforeFilter?(evtParams: { sheet: IBSheetInstance; type: number; eventName: string }): boolean | void
   onBeforeFocus?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2114,28 +2114,28 @@ export interface IBSheetEvents {
     rect: unknown[]
     orect: unknown[]
     eventName: string
-  }): boolean
+  }): boolean | void
   onBeforeGoToPage?(evtParams: {
     sheet: IBSheetInstance
     page: IBPage
     pagepos: number
     eventName: string
-  }): boolean
-  onBeforeGroup?(evtParams: { sheet: IBSheetInstance; group: string; eventName: string }): boolean
+  }): boolean | void
+  onBeforeGroup?(evtParams: { sheet: IBSheetInstance; group: string; eventName: string }): boolean | void
   onBeforePaste?(evtParams: {
     sheet: IBSheetInstance
     cols: string[]
     pastedtext: string[]
     eventName: string
-  }): boolean
+  }): boolean | void
   onBeforeRowDelete?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     type: number
     rows: IBRow[]
     eventName: string
-  }): boolean
-  onBeforeSave?(evtParams: { sheet: IBSheetInstance; source: object; eventName: string }): boolean
+  }): boolean | void
+  onBeforeSave?(evtParams: { sheet: IBSheetInstance; source: object; eventName: string }): boolean | void
   // onBeforeSelect(evtParams:{sheet: IBSheetInstance, row: IBRow, deselect: boolean, cols: string[], eventName: string}): boolean;
   // onBeforeSelectAll(evtParams:{sheet: IBSheetInstance, select: number, type: number, eventName: string}): boolean;
   // onBeforeSend(evtParams:{sheet: IBSheetInstance, source: object, data: string, func: Function, eventName: string}): any;
@@ -2144,7 +2144,7 @@ export interface IBSheetEvents {
     col: string
     sort: string
     eventName: string
-  }): number
+  }): number | void
   onBlur?(evtParams: {
     sheet: IBSheetInstance
     orow: IBRow
@@ -2159,7 +2159,7 @@ export interface IBSheetEvents {
     x: number
     y: number
     eventName: string
-  }): boolean
+  }): boolean | void
   // onCalculateCell(evtParams:{sheet: IBSheetInstance, show: boolean, row: IBRow, col: string, val: any}): any;
   onCancelFile?(evtParams: {
     sheet: IBSheetInstance
@@ -2212,7 +2212,7 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   OnDragFinish?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2230,7 +2230,7 @@ export interface IBSheetEvents {
     x: number
     y: number
     eventName: string
-  }): number
+  }): number | void
   onEndDrag?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2242,7 +2242,7 @@ export interface IBSheetEvents {
     copy: boolean
     rows: IBRow[]
     eventName: string
-  }): number
+  }): number | void
   onEndEdit?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2251,13 +2251,13 @@ export interface IBSheetEvents {
     val: unknown
     raw: string
     eventName: string
-  }): unknown
+  }): unknown | void
   onExcalendar?(evtParams: {
     sheet: IBSheetInstance
     params: object
     evType: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onExportFinish?(evtParams: {
     sheet: IBSheetInstance
     type: string
@@ -2282,7 +2282,7 @@ export interface IBSheetEvents {
     x: number
     y: number
     eventName: string
-  }): boolean
+  }): boolean | void
   onImportFinish?(evtParams: {
     sheet: IBSheetInstance
     type: string
@@ -2298,7 +2298,7 @@ export interface IBSheetEvents {
     name: string
     prefix: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onKeyPress?(evtParams: {
     sheet: IBSheetInstance
     key: number
@@ -2322,7 +2322,7 @@ export interface IBSheetEvents {
     url: string
     target: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onLongClick?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2337,7 +2337,7 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onMouseDown?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2352,7 +2352,7 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onMouseMove?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2367,7 +2367,7 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onMouseOver?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2403,14 +2403,14 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onReadCanEditDate?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     date: Date
     eventName: string
-  }): boolean | unknown[]
+  }): boolean | unknown[] | void
   // onReadCanEditMY(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, year: number, month: number, eventName: string}): boolean;
   onReadDate?(evtParams: {
     sheet: IBSheetInstance
@@ -2421,21 +2421,21 @@ export interface IBSheetEvents {
     classes: unknown[]
     range: unknown[]
     eventName: string
-  }): string
+  }): string | void
   onReadDefaults?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     defaults: object
     eventName: string
-  }): unknown
+  }): string | object | void
   onReadFilteringValue?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
-    val: unknown
+    val: boolean | number | string
     eventName: string
-  }): unknown
+  }): boolean | number | string | void
   // onReadEnum(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, enum: string, eventName: string}): string;
   // onReadEnumKeys(evtParams:{sheet: IBSheetInstance, row: IBRow, col: string, enumkeys: string, eventName: string}): string;
   onReadMenu?(evtParams: {
@@ -2444,26 +2444,26 @@ export interface IBSheetEvents {
     col: string
     menu: IBMenu
     eventName: string
-  }): unknown
+  }): string | object | void
   onReadSuggest?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     suggest: string
     eventName: string
-  }): unknown
+  }): unknown | void
   onReceiveData?(evtParams: {
     sheet: IBSheetInstance
     data: string
     response: object
     type: string
     eventName: string
-  }): string | unknown[]
+  }): string | unknown[] | void
   onRenderFinish?(evtParams: { sheet: IBSheetInstance; eventName: string }): void
   onRenderFirstFinish?(evtParams: { sheet: IBSheetInstance; eventName: string }): void
   // onRenderPageFinish(evtParams:{sheet: IBSheetInstance, row: IBPage, eventName: string}): void;
   // onRenderPageStart(evtParams:{sheet: IBSheetInstance, row: IBPage, eventName: string}): void;
-  onRenderStart?(evtParams: { sheet: IBSheetInstance; eventName: string }): boolean
+  onRenderStart?(evtParams: { sheet: IBSheetInstance; eventName: string }): boolean | void
   onResize?(evtParams: {
     sheet: IBSheetInstance
     oldwidth: number
@@ -2479,7 +2479,7 @@ export interface IBSheetEvents {
     val: string
     errors: object
     eventName: string
-  }): number
+  }): number | void
   onRightClick?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2494,7 +2494,7 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onRightLongClick?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2509,15 +2509,15 @@ export interface IBSheetEvents {
     section: string
     kind: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onRowAdd?(evtParams: { sheet: IBSheetInstance; row: IBRow; eventName: string }): void
   onRowFilter?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     show: boolean
     eventName: string
-  }): boolean
-  onRowLoad?(evtParams: { sheet: IBSheetInstance; row: IBRow; eventName: string }): boolean
+  }): boolean | void
+  onRowLoad?(evtParams: { sheet: IBSheetInstance; row: IBRow; eventName: string }): boolean | void
   onSave?(evtParams: { sheet: IBSheetInstance; eventName: string }): void
   onScroll?(evtParams: {
     sheet: IBSheetInstance
@@ -2560,7 +2560,7 @@ export interface IBSheetEvents {
     col: string
     files: unknown[]
     eventName: string
-  }): boolean
+  }): boolean | void
   onSheetFocus?(evtParams: { sheet: IBSheetInstance; eventName: string }): void
   onShowCalendarYm?(evtparams: {
     sheet: IBSheetInstance
@@ -2569,13 +2569,13 @@ export interface IBSheetEvents {
     year: number
     month: number
     eventName: string
-  }): boolean
+  }): boolean | void
   onShowCol?(evtParams: {
     sheet: IBSheetInstance
     col: string
     hide: boolean
     eventName: string
-  }): boolean
+  }): boolean | void
   onShowDefaults?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2590,21 +2590,21 @@ export interface IBSheetEvents {
     col: string
     editenum: string
     eventName: string
-  }): string
+  }): string | void
   onShowEdit?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     val: string
     eventName: string
-  }): string
+  }): string | void
   onShowEnumMenu?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     enummenu: string
     eventName: string
-  }): string
+  }): string | void
   onShowHint?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2612,7 +2612,7 @@ export interface IBSheetEvents {
     hint: object
     reason: number
     eventName: string
-  }): string
+  }): string | void
   onShowMenu?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2620,7 +2620,7 @@ export interface IBSheetEvents {
     menu: IBMenu
     position: IBPosition
     eventName: string
-  }): boolean
+  }): boolean | void
   onShowMessage?(evtParams: {
     sheet: IBSheetInstance
     messageTag: object
@@ -2630,7 +2630,7 @@ export interface IBSheetEvents {
     buttons: string[]
     callback: Function
     eventName: string
-  }): boolean
+  }): boolean | void
   onShowTip?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2641,14 +2641,14 @@ export interface IBSheetEvents {
     x: number
     y: number
     eventName: string
-  }): string
+  }): string | void
   onStartDragCell?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     html: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onStartDrag?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2657,13 +2657,13 @@ export interface IBSheetEvents {
     copy: boolean
     rows: IBRow[]
     eventName: string
-  }): boolean
+  }): boolean | void
   onStartEdit?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
     col: string
     eventName: string
-  }): boolean
+  }): boolean | void
   onSuggest?(evtParams: {
     sheet: IBSheetInstance
     row: IBRow
@@ -2671,7 +2671,7 @@ export interface IBSheetEvents {
     val: string
     suggest: string
     eventName: string
-  }): unknown
+  }): unknown | void
   onVScrollEndPoint?(evtParams: {
     sheet: IBSheetInstance
     vpos: number
@@ -2807,4 +2807,103 @@ export interface IBCalendar {
   TimeFormat?: string
   Weeks?: number
   Modal?: boolean
+}
+
+export interface IBSheetStatic {
+  readonly Active: IBSheetInstance;
+  readonly Focused: IBSheetInstance;
+  readonly BChrome: boolean;
+  readonly BEdge: boolean;
+  readonly BIE: boolean;
+  readonly BIE5: boolean;
+  readonly BIE8Strict: boolean;
+  readonly BIE9Strict: boolean;
+  readonly BIE10Strict: boolean;
+  readonly BIEA: boolean;
+  readonly BIEA6: boolean;
+  readonly BIEA8: boolean;
+  readonly BIEA9: boolean;
+  readonly BIEA10: boolean;
+  readonly BIEA11: boolean;
+  readonly BIEM: boolean;
+  readonly BIEO8: boolean;
+  readonly BIEO89: boolean;
+  readonly BIEStrict: boolean;
+  readonly BIEVER: number;
+  readonly BOpera: boolean;
+  readonly BOpera8: boolean;
+  readonly BOperaVer: number;
+  readonly BSafari: boolean;
+  readonly BSafariMac: boolean;
+  readonly BSafariMac4Event: boolean;
+  readonly BSafariVer: number;
+  readonly BSafariWin: boolean;
+  readonly BStrict: boolean;
+  g_LoadExcelBuffer: any[];
+  g_LoadExcelBufferExt: string;
+  g_LoadExcelSheetID: any[];
+  g_Multipart: boolean;
+  g_down2ExcelBuffer: string;
+  g_isDirectDown2Excel: boolean;
+  g_isDirectLoadExcel: boolean;
+  g_isDown2ExcelBuffer: boolean;
+  g_isLoadExcelBuffer: boolean;
+  g_targetExcelSheetID: string;
+  g_targetTextSheetID: string;
+  v7: IBSheet7Convert;
+  blur(all?: boolean): any;
+  calcBit(num: number, mode?: number): object;
+  cancelEvent(ev?: Event, type?: number): any;
+  clearCache(id: string, ses?: any): any;
+  create(id: string|IBSheetCreateOptions, el?: string|object, options?: IBSheetOptions, data?: object[]): IBSheetInstance;
+  dateToString(val: Date|number|object|string, format?:string, type?: number): string;
+  disposeAll(dialogs?: boolean, unload?: boolean): any;
+  get(row: IBRow, prop: string): any;
+  getGMT(): number;
+  getLocale(): string;
+  getSheetPath(): string;
+  is(row: IBRow, prop: string): any;
+  loadCache(id: string, ses?: any): any;
+  numberToString(val: number|string, format?:string, type?: number): string;
+  removeHTMLTag(html: string, mode?: number): any;
+  saveCache(id: string, val: string, ses?: any): any;
+  setGMT(gmt: number): any;
+  showCalendar(calendar: IBCalendar, pos: IBPosition, func?: Function, date?: Date|number|object|string): IBCalendar;
+  showDialog(dialog: IBDialog, pos: IBPosition, parent?: any, help?: boolean): IBDialog;
+  showMenu(memu: IBMenu, pos: IBPosition, func?: Function, init?: any, content?: any): IBMenu;
+  showPopup(dialog: IBDialog, func?: Function, init?: any): IBDialog;
+  stringToDate(val: string, format?: string, type?: any, gmt?: boolean): Date;
+  stringToNumber(val: string, format?: string, type?: any): number;
+  version(): string;
+}
+
+export interface IBSheet7Convert {
+  IBS_Calendar(id?: any, format?: any): any;
+  IBS_ConcatSaveName(sheet: IBSheetInstance): any;
+  IBS_CopyForm2Sheet(param: object): any;
+  IBS_CopySheet2Form(param: object): any;
+  IBS_FormQueryString(form: string|object, checkRequired?: boolean|number, encoding?: boolean|number): any;
+  IBS_FormToJson(form: string|object, checkRequired?: boolean|number, encoding?: boolean|number): any;
+  IBS_FromToCalendar(id?: any, format?: any): any;
+  IBS_GetLabel(obj: object): any;
+  IBS_GetName(obj: object): any;
+  IBS_RequiredChk(obj: object): any;
+  IBS_ShowErrMsg(sMsg: string): any;
+  convertAcceptKeys(objColumn: IBCol, str: string): any;
+  convertDateFormat(obj: object): any;
+  convertTreeData(data7: any[]): any[];
+}
+
+export interface IBSheetId {
+  [id: string]: IBSheetInstance;
+}
+
+export interface IBSheetIndex {
+  [index: number]: IBSheetInstance;
+}
+
+export type IBSheetGlobal = IBSheetStatic & IBSheetIndex & IBSheetId;
+
+export interface Window {
+  IBSheet: IBSheetGlobal;
 }

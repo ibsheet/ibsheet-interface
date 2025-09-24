@@ -6,7 +6,7 @@ import prettier from 'eslint-config-prettier'
 
 export default [
   {
-    ignores: ['dist/**'],
+    ignores: ['dist/**', 'eslint.config.js'],
   },
   js.configs.recommended,
   {
@@ -28,7 +28,7 @@ export default [
     },
     rules: {
       ...pluginTs.configs.recommended.rules,
-      'prettier/prettier': 'warn',
+      'prettier/prettier': ['error', require('./.prettierrc.json')],
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-explicit-function-return-type': 'off',
       '@typescript-eslint/no-unsafe-function-type': 'off',

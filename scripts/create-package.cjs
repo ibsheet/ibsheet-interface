@@ -1,24 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 
-const outDir = path.resolve(__dirname, '../dist/ibsheet-interface');
-const packageJsonPath = path.join(outDir, 'package.json');
+const outputPath = path.resolve(__dirname, "../dist/ibsheet-interface/package.json");
+const pkg = require("../package.json");
 
-const packageJsonContent = {
-  name: "@ibsheet/interface",
-  version: "1.0.0",
-  main: "./index.js",
-  module: "./index.js",
-  types: "./index.d.ts",
-  license: "MIT",
-  repository: {
-    type: 'git',
-    url: 'git+https://github.com/ibsheet/ibsheet-interface.git',
-  },
-  keywords: ['ibsheet', 'typescript', 'interface'],
-  author: 'IB Leaders <support@ibleaders.co.kr>',
-  description: 'TypeScript interface for IBSheet',
+const minimalPackage = {
+  name: pkg.name,
+  version: pkg.version,
+  main: "index.js",
+  module: "index.js",
+  types: "index.d.ts",
+  license: pkg.license,
+  repository: pkg.repository,
+  description: pkg.description || "",
+  author: pkg.author || "",
+  keywords: pkg.keywords || [],
+  homepage: pkg.homepage || undefined
 };
 
-fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(packageJsonPath, JSON.stringify(packageJsonContent, null, 2), 'utf-8');
+
+fs.writeFileSync(outputPath, JSON.stringify(minimalPackage, null, 2));
