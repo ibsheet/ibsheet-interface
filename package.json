@@ -1,6 +1,6 @@
 {
   "name": "@ibsheet/interface",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "prviate": true,
   "type": "module",
   "repository": "git@github.com:ibsheet/ibsheet-interface.git",
