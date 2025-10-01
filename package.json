@@ -27,7 +27,7 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
-    "release:publish": "yarn release && cd dist/ibsheet-interface && npm publish --access public",
+    "release:publish": "yarn release && yarn build && cd dist/ibsheet-interface && npm publish --access public",
     "lint": "eslint --ext .ts src",
     "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
     "lint:test": "eslint \"**/*.ts\" && prettier \"**/*.{ts,js,json,md}\" --list-different",
