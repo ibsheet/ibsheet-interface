@@ -113,10 +113,6 @@ This package is designed to work with:
 - TypeScript 4.0+
 - IBSheet JavaScript Data Grid Library
 
-## Contributing
-
-We welcome contributions! Please feel free to submit issues and pull requests.
-
 ## License
 
 [MIT](./LICENSE)
