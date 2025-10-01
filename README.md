@@ -2,84 +2,120 @@
 
 TypeScript interface definitions for IBSheet JavaScript Data Grid Library.
 
-## Build Setup
+## Installation
 
+### Using npm:
 ```bash
-# install dependencies
-yarn install
-
-# build for production
-yarn build
+npm install @ibsheet/interface
 ```
 
-## IBSheetProperties
+### Using yarn:
+```bash
+yarn add @ibsheet/interface
+```
 
-TypeScript interface definitions for Cfg Properties of IBSheet
+## Overview
 
-## IBSheetFunctions
+This package provides comprehensive TypeScript interface definitions for the IBSheet JavaScript Data Grid Library, enabling better type safety and IntelliSense support in TypeScript projects.
 
-TypeScript interface definitions for Methods of IBSheet
+## Core Interfaces
 
-## IBSheetInstance
+### IBSheetInstance
 
-TypeScript interface definitions for IBSheet Object
+Combined interface that includes both properties and methods of an IBSheet instance.
 
-``` How to Use
+**Type Definition:**
+```typescript
 export type IBSheetInstance = IBSheetProperties & IBSheetFunctions
+```
 
-import type { IBSheetInstance } fro '@ibsheet/interface';
+**Usage Example:**
+```typescript
+import type { IBSheetInstance } from '@ibsheet/interface';
 
 let sheetInst: IBSheetInstance;
-// addRow - IBSheetFunctions
-// row append method
-sheetInst.addRow();
 
-// Size - IBSheetProperties
-// check Size Properties
-sheetInst['Size'];
+// Method usage (from IBSheetFunctions)
+sheetInst.addRow(); // Row append method
 
+// Property access (from IBSheetProperties)
+const size = sheetInst['Size']; // Access Size property
 ```
 
-of
+### IBSheetProperties
 
-```
+TypeScript interface definitions for IBSheet configuration properties.
 
-import type { IBSheetOptions } fro '@ibsheet/interface';
+### IBSheetFunctions
+
+TypeScript interface definitions for IBSheet methods and functions.
+
+### IBSheetOptions
+
+Interface for IBSheet initialization options.
+
+**Usage Example:**
+```typescript
+import type { IBSheetOptions } from '@ibsheet/interface';
 
 const options: IBSheetOptions = {
   Cfg: {
-    SearchMode: 2,  -- IBSheetProperties
-    HeaderMerge: 3,  -- IBSheetProperties
+    SearchMode: 2,    // IBSheetProperties
+    HeaderMerge: 3,   // IBSheetProperties
   }
-  ...
+  // ... other options
 }
 ```
 
-## IBSheetEvents
+### IBSheetEvents
 
-TypeScript interface definitions for Functions of IBSheet
+TypeScript interface definitions for IBSheet event handlers.
 
-``` How to Use
+**Usage Example:**
+```typescript
+import type { IBSheetEvents, IBSheetOptions } from '@ibsheet/interface';
 
-import type { IBSheetEvents } from '@ibsheet/interface';
-
+// Define event handler with proper typing
 const handleAfterChange: IBSheetEvents['onAfterChange'] = (param) => { 
-    // The type of the parameter is automatically inferred.
-    console.log('Data changed value:', param.val); 
+  // Parameter type is automatically inferred
+  console.log('Data changed value:', param.val); 
 };
 
 const options: IBSheetOptions = {
-  ...
+  // ... other options
   Events: {
     onAfterChange: handleAfterChange
-    ...
+    // ... other event handlers
   }
 }
 ```
 
-## Other TypeScript definitions of IBSheet
+## Additional Type Definitions
 
-- IBSheetCreateOptions, IBSheetOptions, IBStyleRowConfig, IBInfoRowConfig, IBExcelDownloadConfig etc
+This package also includes other essential IBSheet TypeScript definitions:
+
+- `IBSheetCreateOptions` - Options for creating IBSheet instances
+- `IBStyleRowConfig` - Configuration for row styling
+- `IBInfoRowConfig` - Configuration for info rows
+- `IBExcelDownloadConfig` - Configuration for Excel download functionality
+- And many more...
+
+## Benefits
+
+- ✅ **Type Safety**: Catch errors at compile time
+- ✅ **IntelliSense**: Better IDE support with auto-completion
+- ✅ **Documentation**: Built-in type information and hints
+- ✅ **Refactoring**: Safe code refactoring with type checking
+
+## Compatibility
+
+This package is designed to work with:
+- TypeScript 4.0+
+- IBSheet JavaScript Data Grid Library
+
+## Contributing
+
+We welcome contributions! Please feel free to submit issues and pull requests.
 
 ## License
 
